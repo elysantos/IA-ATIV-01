@@ -1,0 +1,6 @@
+/*
+ * Projeto: Exemplos de implementacao de busca em espaço de estados para 
+ * disciplina Inteligencia Artificial do curso de SI (IFMA/Monte Castelo)
+ *
+ * Copyright 2015-2017 by Josenildo Silva <jcsilva@ifma.edu.br>
+ */
