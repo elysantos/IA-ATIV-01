@@ -5,9 +5,9 @@
  * Copyright 2015 by Josenildo Silva <jcsilva@ifma.edu.br>
  */
 
-package impl.misscanib.acoes;
+package exemplo.impl.misscanib.acoes;
 
-import impl.misscanib.EstadoMissCanib;
+import exemplo.impl.misscanib.EstadoMissCanib;
 import interfaces.Acao;
 import interfaces.Estado;
 

@@ -5,19 +5,19 @@
  * Copyright 2015 by Josenildo Silva <jcsilva@ifma.edu.br>
  */
 
-package impl.misscanib.acoes;
+package exemplo.impl.misscanib.acoes;
 
-import impl.misscanib.EstadoMissCanib;
+import exemplo.impl.misscanib.EstadoMissCanib;
 import interfaces.Estado;
 
 /**
  *
  * @author Josenildo Silva <jcsilva@ifma.edu.br>
  */
-public class MoverM extends AcaoMissCanib{
+public class MoverC extends AcaoMissCanib{
      
-    public MoverM(){
-        super("Mover 1 missionario");
+    public MoverC(){
+        super("Mover 1 canibal");
     }
 
     @Override
@@ -31,13 +31,13 @@ public class MoverM extends AcaoMissCanib{
         if (barco == 'E') {
             // esquerda para direita
             barco = 'D';
-            me--;
-            md++;
+            ce--;
+            cd++;
         }else{
             // direita para esquerda
             barco = 'E';
-            md--;
-            me++;         
+            cd--;
+            ce++;         
         }
         Estado novoEstado = new EstadoMissCanib(me, ce, barco, md, cd);
 

@@ -6,7 +6,7 @@
  */
 
 
-package impl.misscanib;
+package exemplo.impl.misscanib;
 
 import interfaces.Acao;
 import interfaces.Estado;

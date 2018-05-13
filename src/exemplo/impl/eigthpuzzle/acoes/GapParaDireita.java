@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package impl.eigthpuzzle.acoes;
+package exemplo.impl.eigthpuzzle.acoes;
 
-import impl.eigthpuzzle.EstadoEightPuzzle;
+import exemplo.impl.eigthpuzzle.EstadoEightPuzzle;
 import interfaces.Acao;
 import interfaces.Estado;
 
@@ -13,10 +13,10 @@ import interfaces.Estado;
  *
  * @author jcsilva
  */
-public class GapParaEsquerda implements Acao {
+public class GapParaDireita implements Acao {
     @Override
     public Estado resultado(Estado e) {
-        EstadoEightPuzzle e1 = ((EstadoEightPuzzle) e).moveGapPraEsquerda();
+        EstadoEightPuzzle e1 = ((EstadoEightPuzzle) e).moveGapParaDireita();
         return e1;
     }
 
@@ -26,7 +26,7 @@ public class GapParaEsquerda implements Acao {
     }
     @Override
    public String toString(){
-        return "Para esquerda";
+        return "Para direita";
     }
 
     @Override

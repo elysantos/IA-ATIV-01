@@ -4,14 +4,14 @@
  *
  * Copyright 2015 by Josenildo Silva <jcsilva@ifma.edu.br>
  */
-package impl.misscanib;
+package exemplo.impl.misscanib;
 
-import impl.misscanib.acoes.AcaoMissCanib;
-import impl.misscanib.acoes.Mover1M1C;
-import impl.misscanib.acoes.Mover2C;
-import impl.misscanib.acoes.Mover2M;
-import impl.misscanib.acoes.MoverC;
-import impl.misscanib.acoes.MoverM;
+import exemplo.impl.misscanib.acoes.*;
+//import impl.misscanib.acoes.Mover1M1C;
+//import impl.misscanib.acoes.Mover2C;
+//import impl.misscanib.acoes.Mover2M;
+//import impl.misscanib.acoes.MoverC;
+//import impl.misscanib.acoes.MoverM;;
 import interfaces.Acao;
 import interfaces.Estado;
 import java.util.HashSet;

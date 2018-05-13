@@ -4,7 +4,7 @@
  *
  * Copyright 2015 by Josenildo Silva <jcsilva@ifma.edu.br>
  */
-package impl.eigthpuzzle;
+package exemplo.impl.eigthpuzzle;
 
 import interfaces.Acao;
 import interfaces.Estado;

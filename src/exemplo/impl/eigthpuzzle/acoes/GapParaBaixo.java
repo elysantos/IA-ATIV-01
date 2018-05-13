@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package impl.eigthpuzzle.acoes;
+package exemplo.impl.eigthpuzzle.acoes;
 
-import impl.eigthpuzzle.EstadoEightPuzzle;
+import exemplo.impl.eigthpuzzle.*;
 import interfaces.Acao;
 import interfaces.Estado;
 

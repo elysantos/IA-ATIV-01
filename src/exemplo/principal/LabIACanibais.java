@@ -1,14 +1,14 @@
 /*
  *  Copyright(c) by Josenildo Silva <jcsilva@ifma.edu.br>
  */
-package principal;
+package exemplo.principal;
 
 import busca.informada.BuscaAStar;
 import busca.naoinformada.BuscaEmLargura;
 import busca.naoinformada.BuscaEmProfundidade;
 import impl.eigthpuzzle.MisplacedTilleHeuristicFunction;
-import impl.misscanib.HeuristicaNumeroDePessoas;
-import impl.misscanib.ProblemaMissCanib;
+import exemplo.impl.misscanib.HeuristicaNumeroDePessoas;
+import exemplo.impl.misscanib.ProblemaMissCanib;
 import interfaces.Acao;
 import interfaces.Estado;
 import interfaces.FuncaoHeuristica;
@@ -34,7 +34,7 @@ public class LabIACanibais {
         FuncaoHeuristica h= new HeuristicaNumeroDePessoas();
         BuscaAStar b3 = new BuscaAStar(h);
         long t0 = System.currentTimeMillis();
-        List<Acao> result1 = b1.buscarIterativamente(p);
+        List<Acao> result1 = b1.buscar(p);
         if (result1.get(0).getClass().getSimpleName().equals("CutOff")) System.out.println("Cutoff reached.");
         System.out.println("");
         long t1 = System.currentTimeMillis();
@@ -45,18 +45,18 @@ public class LabIACanibais {
         List<Acao> result4 = b3.buscar(p);
         long t4 = System.currentTimeMillis();
         Estado e = p.estadoInicial();
-        //System.out.println(e);
-        //for (int i = 0; i < result1.size(); i++) {
-        //    System.out.println("[Passo " + i + "]" + result1.get(i));
-        //    Acao a = result1.get(i);
-        //    e = a.resultado(e);
-        //    System.out.println(e);
-        //}
-        System.out.println("Elapsed time \n"+
-                " t1 = "+(t1-t0)+" (ms). Nodos visitados : "+ b1.getMaxVisitSize()+"\n"+
-                " t2 = "+(t2-t1)+" (ms). Nodos visitados : "+ b2.getMaxVisitSize()+"\n"+
-                " t3 = "+(t3-t2)+" (ms). Nodos visitados : "+ b2.getMaxVisitSize()+"\n"+
-                " t4 = "+(t4-t3)+" (ms). Nodos visitados : "+ b3.getMaxVisitSize());
+//        //System.out.println(e);
+//        //for (int i = 0; i < result1.size(); i++) {
+//        //    System.out.println("[Passo " + i + "]" + result1.get(i));
+//        //    Acao a = result1.get(i);
+//        //    e = a.resultado(e);
+//        //    System.out.println(e);
+//        //}
+//        System.out.println("Elapsed time \n"+
+//                " t1 = "+(t1-t0)+" (ms). Nodos visitados : "+ b1.getMaxVisitSize()+"\n"+
+//                " t2 = "+(t2-t1)+" (ms). Nodos visitados : "+ b2.getMaxVisitSize()+"\n"+
+//                " t3 = "+(t3-t2)+" (ms). Nodos visitados : "+ b2.getMaxVisitSize()+"\n"+
+//                " t4 = "+(t4-t3)+" (ms). Nodos visitados : "+ b3.getMaxVisitSize());
     }
 
 }
