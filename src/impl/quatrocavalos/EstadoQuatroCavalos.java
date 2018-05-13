@@ -13,7 +13,7 @@ import interfaces.Estado;
  * @author Ely Franklin
  */
 public class EstadoQuatroCavalos implements Estado{
-    private int[][] tabuleiro = new int[3][3];
+    private int dimensao = 3;
     private int[] cavaloB1 = new int[2];
     private int[] cavaloB2 = new int[2];
     private int[] cavaloP1 = new int[2];
@@ -27,12 +27,32 @@ public class EstadoQuatroCavalos implements Estado{
     }
     @Override
     public boolean estadoValido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return validaPosicao(this.getCavaloB1()) &&
+         validaPosicao(this.getCavaloB2()) &&
+         validaPosicao(this.getCavaloP1()) &&
+         validaPosicao(this.getCavaloP2());
     }
 
     @Override
     public boolean igual(Estado e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this == e) {
+            return true;
+        }
+        if ((e == null) || (this.getClass() != e.getClass())) {
+            return false;
+        }
+        EstadoQuatroCavalos estado = (EstadoQuatroCavalos) e;
+        
+        if(this.getCavaloB1() != estado.getCavaloB1()){
+            return false;
+        }
+        if(this.getCavaloB2() != estado.getCavaloB2()){
+            return false;
+        }
+        if(this.getCavaloP1() != estado.getCavaloP1()){
+            return false;
+        }
+        return this.getCavaloP2() == estado.getCavaloP2();
     }
 
     public int[] getCavaloB1() {
@@ -50,7 +70,46 @@ public class EstadoQuatroCavalos implements Estado{
     public int[] getCavaloP2() {
         return cavaloP2;
     }
-
-
+    
+    /**
+     * Adicionar comparação se a posição já está ocupada
+     * @param posicao posicao de um cavalo para verificar validade
+     * @return 
+     */
+    private boolean validaPosicao(int[] posicao){
+        
+        if(posicao[0] >= this.dimensao || posicao[0]<0){
+            return false;
+        }
+        return !(posicao[1] >= this.dimensao || posicao[1]<0);
+    }
+    
+    @Override
+    public String toString(){
+        String str = "+----+----+----+\n";
+        for(int i = 0; i < this.dimensao; i++){
+            for(int j = 0; j < this.dimensao; j++){
+                str += "| ";
+                str += this.achaCorrespondente(i, j) + " ";
+            }
+            str += "|\n+----+----+----+\n";
+        }
+        return str;
+    }
+    private String achaCorrespondente(int x, int y){
+        if(this.cavaloB1[0] == x && this.cavaloB1[1]==y){
+            return "B1";
+        }
+        if(this.cavaloB2[0] == x && this.cavaloB2[1]==y){
+            return "B2";
+        }
+        if(this.cavaloP1[0] == x && this.cavaloP1[1]==y){
+            return "P1";
+        }
+        if(this.cavaloP2[0] == x && this.cavaloP2[1]==y){
+            return "P2";
+        }
+        return "  ";
+    }
     
 }
