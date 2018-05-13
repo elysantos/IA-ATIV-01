@@ -7,12 +7,15 @@
 
 package interfaces;
 
+import impl.quatrocavalos.EstadoQuatroCavalos;
+import java.util.ArrayList;
+
 /**
  * Representa uma operação que pode lever de um estado a outro
  * @author Josenildo Silva <jcsilva@ifma.edu.br>
  */
 public interface Acao {
-    public Estado resultado(Estado e);
+    public ArrayList<EstadoQuatroCavalos> resultado(Estado e);
     public double custo(Estado e);
     public boolean preCondicoesSatisfeitas(Estado e);
 }
