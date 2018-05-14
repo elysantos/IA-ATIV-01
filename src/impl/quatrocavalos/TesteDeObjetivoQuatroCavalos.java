@@ -11,14 +11,14 @@ public class TesteDeObjetivoQuatroCavalos implements TesteDeObjetivo{
     private EstadoQuatroCavalos objetivo;
 
     public TesteDeObjetivoQuatroCavalos() {
-        this.objetivo = new EstadoQuatroCavalos(new int[]{2,0}, new int[]{2,2}, new int[]{0,0}, new int[]{0,2});
+        this.objetivo = new EstadoQuatroCavalos(new int[]{2,2}, new int[]{2,0}, new int[]{0,2}, new int[]{0,0});
     }
     
     public TesteDeObjetivoQuatroCavalos(EstadoQuatroCavalos inicial){
         
         int[] posB1, posB2, posP1, posP2;
         
-        this.objetivo = new EstadoQuatroCavalos(new int[]{2,0}, new int[]{2,2}, new int[]{0,0}, new int[]{0,2});
+        this.objetivo = new EstadoQuatroCavalos(new int[]{2,2}, new int[]{2,0}, new int[]{0,2}, new int[]{0,0});
         
         if(inicial.estadoValido()){
             posB1 = inicial.getCavaloB1();
