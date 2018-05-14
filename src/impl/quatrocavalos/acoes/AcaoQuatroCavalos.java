@@ -3,7 +3,6 @@ package impl.quatrocavalos.acoes;
 import impl.quatrocavalos.EstadoQuatroCavalos;
 import interfaces.Acao;
 import interfaces.Estado;
-import java.util.ArrayList;
 
 /**
  *
@@ -26,7 +25,7 @@ public abstract class AcaoQuatroCavalos implements Acao{
     }
 
     @Override
-    public abstract ArrayList<EstadoQuatroCavalos> resultado(Estado e);
+    public abstract EstadoQuatroCavalos resultado(Estado e);
     
     @Override
     public double custo(Estado e) {

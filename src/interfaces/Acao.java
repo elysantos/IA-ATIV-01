@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author Josenildo Silva <jcsilva@ifma.edu.br>
  */
 public interface Acao {
-    public ArrayList<EstadoQuatroCavalos> resultado(Estado e);
+    public EstadoQuatroCavalos resultado(Estado e);
     public double custo(Estado e);
     public boolean preCondicoesSatisfeitas(Estado e);
 }
