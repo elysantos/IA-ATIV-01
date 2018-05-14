@@ -17,35 +17,71 @@ import java.util.Set;
  * @author Ely Franklin
  */
 public class ProblemaQuatroCavalos implements Problema{
-
+    
+    private final FuncaoSucessorQuatroCavalos fs;
+    private final EstadoQuatroCavalos inicio;
+    private TesteDeObjetivoQuatroCavalos testeObjetivo;
+    
+    public ProblemaQuatroCavalos(){
+        this.fs = new FuncaoSucessorQuatroCavalos();
+        this.inicio = new EstadoQuatroCavalos(new int[]{0,0}, new int[]{0,2}, new int[]{2,0}, new int[]{2,2});
+        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(this.inicio);
+    }
+    
+    public ProblemaQuatroCavalos(EstadoQuatroCavalos ini){
+        this.fs = new FuncaoSucessorQuatroCavalos();
+        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(ini);
+        if (ini.estadoValido()){
+            this.inicio = ini;   
+        }else{
+            this.inicio = new EstadoQuatroCavalos(new int[]{0,0}, new int[]{0,2}, new int[]{2,0}, new int[]{2,2});
+        }
+    }
+    
+    public ProblemaQuatroCavalos(EstadoQuatroCavalos ini, boolean objetivoDefault){
+        this.fs = new FuncaoSucessorQuatroCavalos();
+        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(ini);
+        if (ini.estadoValido()){
+            this.inicio = ini;   
+        }else{
+            this.inicio = new EstadoQuatroCavalos(new int[]{0,0}, new int[]{0,2}, new int[]{2,0}, new int[]{2,2});
+        }
+        
+        if (objetivoDefault){//ir até o objetivo defalt
+            this.testeObjetivo = new TesteDeObjetivoQuatroCavalos();
+        }else{// ir até o inverso do estado inicial
+            this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(ini);
+        }
+    }
+    
     @Override
     public Estado resultado(Acao a, Estado e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return a.resultado(e);
     }
 
     @Override
     public Set<Acao> acoes(Estado e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.fs.acoes(e);
     }
 
     @Override
     public Set<Map.Entry<Acao, Estado>> sucessores(Estado e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.fs.sucessores(e);
     }
 
     @Override
     public boolean testaObjetivo(Estado e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.testeObjetivo.ehObjetivo(e);
     }
 
     @Override
     public double custo(Acao a, Estado ei) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return a.custo(ei);
     }
 
     @Override
     public Estado estadoInicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.inicio;
     }
 
 }

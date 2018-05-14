@@ -345,5 +345,17 @@ public class EstadoQuatroCavalos implements Estado{
         return estados;
     }
     
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 1 * hash + this.cavaloB1[0];
+        hash = 3 * hash + this.cavaloB1[1];
+        hash = 7 * hash + this.cavaloB2[0];
+        hash = 11 * hash + this.cavaloB2[1];
+        hash = 13 * hash + this.cavaloP1[0];
+        hash = 17 * hash + this.cavaloP1[1];
+        hash = 19 * hash + this.cavaloP2[0];
+        hash = 23 * hash + this.cavaloP2[1];
+        return hash;
+    }
 }
