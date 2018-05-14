@@ -33,8 +33,8 @@ public class Main {
         BuscaEmLargura b2 = new BuscaEmLargura();
         
         long t0 = System.currentTimeMillis();
-//        List<Acao> result1 = b1.buscar(p);
-        List<Acao> result1 = b2.buscar(p);
+        List<Acao> result1 = b1.buscar(p);
+//        List<Acao> result1 = b2.buscar(p);
         long t1 = System.currentTimeMillis();
         //List<Acao> result2 = b2.buscar(p);
         long t2 = System.currentTimeMillis();
