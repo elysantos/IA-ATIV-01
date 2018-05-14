@@ -38,7 +38,7 @@ public class Main {
 
 
         System.out.println(teste.ehObjetivo(e));
-        System.out.println(result1.size());
+        //System.out.println(result1.size());
         for (int i = 0; i < result1.size(); i++) {
             System.out.println("[Passo " + i + "]" + result1.get(i));
             Acao a = result1.get(i);

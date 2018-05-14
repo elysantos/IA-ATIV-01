@@ -16,7 +16,7 @@ import interfaces.Estado;
  */
 public class MoverB2BD extends AcaoQuatroCavalos{
      public MoverB2BD() {
-        super("Mover B2 +2-1");
+        super("Mover B2 +2+1");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MoverB2BD extends AcaoQuatroCavalos{
         
         int posL = origem.getCavaloB2()[0];
         int posC = origem.getCavaloB2()[1];
-        int[] pos = new int[] {posL+2, posC-1};
+        int[] pos = new int[] {posL+2, posC+1};
         
         novo = new EstadoQuatroCavalos( origem.getCavaloB1(), pos, origem.getCavaloP1(), origem.getCavaloP2());
         
