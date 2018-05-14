@@ -25,12 +25,12 @@ public class ProblemaQuatroCavalos implements Problema{
     public ProblemaQuatroCavalos(){
         this.fs = new FuncaoSucessorQuatroCavalos();
         this.inicio = new EstadoQuatroCavalos(new int[]{0,0}, new int[]{0,2}, new int[]{2,0}, new int[]{2,2});
-        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(this.inicio);
+        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos();
     }
     
     public ProblemaQuatroCavalos(EstadoQuatroCavalos ini){
         this.fs = new FuncaoSucessorQuatroCavalos();
-        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(ini);
+        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos();
         if (ini.estadoValido()){
             this.inicio = ini;   
         }else{
@@ -40,7 +40,7 @@ public class ProblemaQuatroCavalos implements Problema{
     
     public ProblemaQuatroCavalos(EstadoQuatroCavalos ini, boolean objetivoDefault){
         this.fs = new FuncaoSucessorQuatroCavalos();
-        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos(ini);
+        this.testeObjetivo = new TesteDeObjetivoQuatroCavalos();
         if (ini.estadoValido()){
             this.inicio = ini;   
         }else{

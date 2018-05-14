@@ -62,17 +62,18 @@ public class EstadoQuatroCavalos implements Estado{
             return false;
         }
         EstadoQuatroCavalos estado = (EstadoQuatroCavalos) e;
-        
-        if(this.getCavaloB1() != estado.getCavaloB1()){
-            return false;
-        }
-        if(this.getCavaloB2() != estado.getCavaloB2()){
-            return false;
-        }
-        if(this.getCavaloP1() != estado.getCavaloP1()){
-            return false;
-        }
-        return this.getCavaloP2() == estado.getCavaloP2();
+//        if(this.getCavaloB1() != estado.getCavaloB1()){
+//            return false;
+//        }
+//        if(this.getCavaloB2() != estado.getCavaloB2()){
+//            return false;
+//        }
+//        if(this.getCavaloP1() != estado.getCavaloP1()){
+//            return false;
+//        }
+//        return this.getCavaloP2() == estado.getCavaloP2();
+                
+        return this.hashCode()==e.hashCode();
     }
 
     public int[] getCavaloB1() {
@@ -136,226 +137,18 @@ public class EstadoQuatroCavalos implements Estado{
         return "  ";
     }
     
-    public List<EstadoQuatroCavalos> movimentaB1(){
-        List<EstadoQuatroCavalos>  estados = new ArrayList<EstadoQuatroCavalos>();
-        EstadoQuatroCavalos e;
-        int posL = this.cavaloB1[0];
-        int posC = this.cavaloB1[1];
-        int[] pos = new int[] {posL+1, posC+2};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-       
-        pos = new int[] {posL+2, posC+1};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-2, posC-1};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC-2};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL+2, posC-1};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL+1, posC-2};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL-2, posC+1};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC+2};
-        e = new EstadoQuatroCavalos(pos, this.cavaloB2, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        return estados;
-    }
-    public List<EstadoQuatroCavalos> movimentaB2(){
-        List<EstadoQuatroCavalos>  estados = new ArrayList<EstadoQuatroCavalos>();
-        EstadoQuatroCavalos e;
-        int posL = this.cavaloB2[0];
-        int posC = this.cavaloB2[1];
-        int[] pos = new int[] {posL+1, posC+2};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-       
-        pos = new int[] {posL+2, posC+1};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-2, posC-1};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC-2};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL+2, posC-1};
-       e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL+1, posC-2};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL-2, posC+1};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC+2};
-        e = new EstadoQuatroCavalos(this.cavaloB1,pos, this.cavaloP1, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        return estados;
-    }
-    public List<EstadoQuatroCavalos> movimentaP1(){
-        List<EstadoQuatroCavalos>  estados = new ArrayList<EstadoQuatroCavalos>();
-        EstadoQuatroCavalos e;
-        int posL = this.cavaloP1[0];
-        int posC = this.cavaloP1[1];
-        int[] pos = new int[] {posL+1, posC+2};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2,pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-       
-        pos = new int[] {posL+2, posC+1};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2,pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-2, posC-1};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2, pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC-2};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2, pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL+2, posC-1};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2, pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL+1, posC-2};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2, pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL-2, posC+1};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2, pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC+2};
-        e = new EstadoQuatroCavalos( this.cavaloB1, this.cavaloB2, pos, this.cavaloP2);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        return estados;
-    }
-    public List<EstadoQuatroCavalos> movimentaP2(){
-        List<EstadoQuatroCavalos>  estados = new ArrayList<EstadoQuatroCavalos>();
-        EstadoQuatroCavalos e;
-        int posL = this.cavaloP2[0];
-        int posC = this.cavaloP2[1];
-        int[] pos = new int[] {posL+1, posC+2};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-       
-        pos = new int[] {posL+2, posC+1};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-2, posC-1};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC-2};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL+2, posC-1};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL+1, posC-2};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        pos = new int[] {posL-2, posC+1};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        
-        pos = new int[] {posL-1, posC+2};
-        e = new EstadoQuatroCavalos(this.cavaloB1, this.cavaloB2, this.cavaloP1, pos);
-        if(e.estadoValido()){
-            estados.add(e);
-        }
-        return estados;
-    }
     
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 1 * hash + this.cavaloB1[0];
-        hash = 3 * hash + this.cavaloB1[1];
-        hash = 7 * hash + this.cavaloB2[0];
-        hash = 11 * hash + this.cavaloB2[1];
-        hash = 13 * hash + this.cavaloP1[0];
-        hash = 17 * hash + this.cavaloP1[1];
-        hash = 19 * hash + this.cavaloP2[0];
-        hash = 23 * hash + this.cavaloP2[1];
+        hash = 17 * hash + (this.cavaloB1[0]+1);
+        hash = 17 * hash + (this.cavaloB1[1]+1);
+        hash = 17 * hash + (this.cavaloB2[0]+1);
+        hash = 17 * hash + (this.cavaloB2[1]+1);
+        hash = 17 * hash + (this.cavaloP1[0]+1);
+        hash = 17 * hash + (this.cavaloP1[1]+1);
+        hash = 17 * hash + (this.cavaloP2[0]+1);
+        hash = 17 * hash + (this.cavaloP2[1]+1);
         return hash;
     }
 }

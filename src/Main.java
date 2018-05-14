@@ -20,16 +20,22 @@ public class Main {
 
     public static void main(String[] args) {
         Problema p = new ProblemaQuatroCavalos();
+        Estado e = p.estadoInicial();
+        EstadoQuatroCavalos eQ =  (EstadoQuatroCavalos)e;
+        
         TesteDeObjetivoQuatroCavalos teste =  new TesteDeObjetivoQuatroCavalos();
         
+        System.out.println(teste.ehObjetivo(eQ));
+        
+//        
+//        
         BuscaEmProfundidade b1 = new BuscaEmProfundidade();
         BuscaEmLargura b2 = new BuscaEmLargura();
         
         long t0 = System.currentTimeMillis();
-        List<Acao> result1 = b1.buscar(p);
+        List<Acao> result1 = b2.buscar_v2_0(p);
         long t1 = System.currentTimeMillis();
 
-        Estado e = p.estadoInicial();
 
         System.out.println(teste.ehObjetivo(e));
         System.out.println(result1.size());
